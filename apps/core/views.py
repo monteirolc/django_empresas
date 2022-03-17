@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from apps.funcionarios.models import Funcionario
 
 # Create your views here.
 
 
 @login_required()
 def home(request):
-    return render(request, 'core/index.html')
+    data = {}
+    data['myUser'] = request.user
+    return render(request, 'core/index.html', data)

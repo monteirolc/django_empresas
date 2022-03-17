@@ -12,7 +12,8 @@ class Funcionario(models.Model):
     departaments = models.ManyToManyField(
         Departamento, verbose_name='departamentos')
     company = models.ForeignKey(
-        Empresa, on_delete=models.PROTECT, verbose_name='Empresa')
+        Empresa, on_delete=models.PROTECT, verbose_name='Empresa',
+        null=True, blank=True)
 
     def __str__(self):
         return self.name
