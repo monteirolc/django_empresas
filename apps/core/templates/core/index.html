@@ -10,22 +10,23 @@
       Olá {{myUser.funcionario.name}}
     </div>
     <div class="col-sm">
-      <a href="{% url 'logout' %}">
-        <img src="{% static 'img/logout.svg' %}" alt="logout" title="Logout" style="height:24px; width: 24px; color:blue;">
-
-        {% if usuario.funcionario.empresa %}
-          <a href="">
-            <img src="{% static 'img/domain.svg' %}" alt="Empresa" title="Dados da empresa" style="height:24px; width: 24px; color:blue;">
-          </a>
-
+      <div class="btn-group">
+        <a class=" btn btn-outline-info" href="{% url 'logout' %}">
+          <i class="bi bi-box-arrow-down"></i>
+        </a>
+        {% if myUser.funcionario.company %}
+        <a class=" btn btn-outline-info" href="empresas/editar/{{myUser.funcionario.company_id}}">
+          <i class="bi bi-building"></i>
+        </a>
         {% else %}
-
-          <a href="">
-            <img src="{% static 'img/circle_plus.svg' %}" alt=" Criar empresa" title="Criar empresa" style="height:24px; width: 24px; color:blue;">
-          </a>
-
+        <a class=" btn btn-outline-info" href="{% url 'create_company' %}">
+          <i class="bi bi-plus-circle-fill"></i>
+        </a>
         {% endif %}
-      </a>
+        <a class="btn btn-outline-info" href="{% url 'list_worker' %}">
+          <i class="bi bi-person-circle"></i>
+        </a>
+      </div>
     </div>
   </div>
 {% endblock %}
