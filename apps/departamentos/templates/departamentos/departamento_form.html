@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<h1 class="text-dark"> Editar</h1>
+<h3 class="text-dark"> Editar</h3>
 <form method="post">
   {% csrf_token %}
   {{form}}
+  <br><br>
   <button class="btn btn-primary" type="submit">
     Salvar alterações
   </button>
 </form>
-
+<br>
 {% endblock %}

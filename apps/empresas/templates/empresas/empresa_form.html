@@ -3,8 +3,10 @@
 {% block main %}
   <form method="post">
     {% csrf_token %}
-    {{ form }}
+    <label for="id_name">Empresa: </label>
+    {{ form.name }}
+    <br><br>
     <button type="submit" class="btn btn-primary">Salvar</button>
   </form>
-    
+  <br>
 {% endblock %}

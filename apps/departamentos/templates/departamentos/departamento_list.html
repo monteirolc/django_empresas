@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block main%}
+
+  <div class="row">
+    <div class="col-10">
+      <h3> Departamentos </h3> <br><br>
+    </div>
+    <div class="col-2">
+      <a class="btn btn-outline-success" href="{% url 'home' %}"><i class="bi bi-house-fill"></i>Home</a>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    {% for departament in object_list %}
+    <div class="col-10">
+      <a href="{% url 'edit_departament' departament.id %}" class="a_worker">{{departament}}</a>
+    </div>
+    <div class="col-2">
+      <a title="Deletar" class="btn btn-outline-danger" href="{% url 'delete_departament' departament.id %}"><i class="bi bi-trash3"></i></a>
+    </div>
+    <br><br>
+    {% endfor %}
+  </div>
+  <div class="row">
+    <div class="col-10"></div>
+     <div class="col-2">
+       <div class="align-bottom">
+         <a title="Criar" class="btn btn-info" href="{% url 'new_departament' %}" style="border-radius: 50%;"><i class="bi bi-person-plus-fill"></i></a>
+       </div>
+     </div>
+   </div>
+  <br>
+{% endblock%}
