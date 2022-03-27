@@ -1,36 +1,37 @@
 {% extends 'base.html' %}
 {% load static %}
+  {% block main %}
 
-{% block main %}
-  <div class="row">
-    <div class="col-sm">
-      1
-    </div>
-    <div class="col-sm align-middle">
-      Olá {{myUser.funcionario.name}}
-    </div>
-    <div class="col-sm">
-      <div class="btn-group">
-        <a class=" btn btn-outline-info" href="{% url 'logout' %}">
-          <i class="bi bi-box-arrow-down" title="logout"></i>
-        </a>
-        {% if myUser.funcionario.company %}
-        <a class=" btn btn-outline-info" href="company/edit/{{myUser.funcionario.company_id}}">
-          <i class="bi bi-building" title="Editar empresa"></i>
-        </a>
-        {% else %}
-        <a class=" btn btn-outline-info" href="{% url 'create_company' %}">
-          <i class="bi bi-plus-circle-fill" title="Criar empresa"></i>
-        </a>
-        {% endif %}
-        <a class="btn btn-outline-info" href="{% url 'list_worker' %}">
-          <i class="bi bi-person-circle" title="Editar funcionário"></i>
-        </a>
-        <a class="btn btn-outline-info" href="{% url 'list_departament' %}"> 
-          <i class="bi bi-columns-gap" title="Listar Departamentos"></i>
-        </a>
+    <div class="row">
+      <div class="col-sm">
+        1
+      </div>
+      <div class="col-sm align-middle">
+        Olá {{myUser.funcionario.name}}
+      </div>
+      <div class="col-sm">
+        <div class="btn-group">
+          <a class=" btn btn-outline-info" href="{% url 'logout' %}">
+            <i class="bi bi-box-arrow-down" title="logout"></i>
+          </a>
+          {% if myUser.funcionario.company %}
+          <a class=" btn btn-outline-info" href="company/edit/{{myUser.funcionario.company_id}}">
+            <i class="bi bi-building" title="Editar empresa"></i>
+          </a>
+          {% else %}
+          <a class=" btn btn-outline-info" href="{% url 'create_company' %}">
+            <i class="bi bi-plus-circle-fill" title="Criar empresa"></i>
+          </a>
+          {% endif %}
+          <a class="btn btn-outline-info" href="{% url 'list_worker' %}">
+            <i class="bi bi-person-circle" title="Editar funcionário"></i>
+          </a>
+          <a class="btn btn-outline-info" href="{% url 'list_departament' %}"> 
+            <i class="bi bi-columns-gap" title="Listar Departamentos"></i>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-<br>
+    {{myUser.documents}}
+  <br>
 {% endblock %}
