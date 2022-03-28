@@ -14,5 +14,10 @@
 <br>
 <a href="{% url 'new_document' object.id %}" class="btn btn-outline-success"> Adicionar novo documento </a>
 <br><br>
+ {% for document in object.documento_set.all %}
+  <a href="{{ document.file.url }}">{{document}}</a>
+  <br>
+ {% endfor  %}
+<br><br>
 
 {% endblock %}
