@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block main %}
+<div class="row">
+  <div class="col-5"></div>
+  <div class="col-7">
+    {% if not object %}
+    <h2>Criar</h2>
+    {% else %}
+    <h2>Editar</h2>
+    {% endif %}
+  </div>
+
+</div>
+<form method="post">
+  {% csrf_token %}
+  {{form|bootstrap}}
+  <br><br>
+  <button type="submit" class=" btn btn-primary"> Salvar</button>
+  <a href="{% url 'list_overtime' %}" class="btn btn-outline-success">Voltar</a>
+</form>
+<br>
+{% endblock %}
