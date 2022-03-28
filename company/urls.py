@@ -24,6 +24,7 @@ urlpatterns = [
     path('company/', include('apps.empresas.urls')),
     path('departaments/', include('apps.departamentos.urls')),
     path('documents/', include('apps.documentos.urls')),
+    path('overtime/', include('apps.registro_hora_extra.urls')),
     path('', include('apps.core.urls')),
     path('accounts/', include('django.contrib.auth.urls'), name='login'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

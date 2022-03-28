@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% load bootstrap %} {% block main %}
+
+<h2>Banco de Horas</h2>
+<br />
+
+{% for register in objects_list %}
+  {{ register|bootstrap }}
+  {% endfor %} 
+{%endblock %}
