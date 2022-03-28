@@ -14,3 +14,7 @@ body{
 .a_worker:hover{
   color: rgb(6, 111, 97);
 }
+
+.text-red{
+  color: red;
+}

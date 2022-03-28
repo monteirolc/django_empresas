@@ -1,9 +1,37 @@
 {% extends 'base.html' %} {% load bootstrap %} {% block main %}
 
-<h2>Banco de Horas</h2>
-<br />
-
-{% for register in objects_list %}
-  {{ register|bootstrap }}
+<div class="row">
+  <div class="col-10">
+    <h3> Registro de Horas Extras (Banco de horas) </h3> <br>
+  </div>
+  <div class="col-2">
+    <a class="btn btn-outline-success" href="{% url 'home' %}"><i class="bi bi-house-fill"></i>Home</a>
+  </div>
+</div>
+<br>
+  {% for register in object_list %}
+  <div class="row">
+    <div class="col-10">
+      <a href="{% url 'edit_overtime' register.id %}">
+        {{ register }}
+      </a>
+    </div>
+    <div class="col-2">
+      <a href="{% url 'delete_overtime' register.id %}" class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+    </div>
+  </div>
+    <br>
   {% endfor %} 
+  {% if not object_list %}
+    <h5>Não existem horas extras cadastradas</h5>
+  {% endif %}
+  <div class="row">
+    <div class="col-10"></div>
+     <div class="col-2">
+       <div class="align-bottom">
+         <a title="Criar" class="btn btn-info" href="{% url 'create_overtime' %}" style="border-radius: 50%;"><i class="bi bi-calendar2-plus"></i></a>
+       </div>
+     </div>
+   </div>
+  <br>
 {%endblock %}

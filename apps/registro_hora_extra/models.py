@@ -1,7 +1,6 @@
 from django.db import models
+from django.urls import reverse
 from apps.funcionarios.models import Funcionario
-
-# Create your models here.
 
 
 class RegistroHoraExtra(models.Model):
@@ -9,6 +8,10 @@ class RegistroHoraExtra(models.Model):
     worker = models.ForeignKey(
         Funcionario, on_delete=models.PROTECT, verbose_name='Funcionario')
     hours = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Horas')
+
+    def get_absolute_url(self):
+        return reverse("list_overtime")
+    
 
     def __str__(self):
         return self.reason
