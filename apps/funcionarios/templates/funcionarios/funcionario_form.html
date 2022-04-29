@@ -13,11 +13,22 @@
 </form>
 <br>
 <a href="{% url 'new_document' object.id %}" class="btn btn-outline-success"> Adicionar novo documento </a>
-<br><br>
+<br>
+<h3>Documentos</h3>
+<br>
  {% for document in object.documento_set.all %}
   <a href="{{ document.file.url }}">{{document}}</a>
   <br>
  {% endfor  %}
-<br><br>
+<br>
+<h3>Registro de horas extras</h3>
+<ul>
+  {% for overtime in object.registrohoraextra_set.all %}
+    <a href="{% url 'edit_overtime' overtime.id %}"><li>{{overtime.reason}} -|- {{overtime.hours}} horas</li></a>
+  {% endfor %}
+</ul>
+<h3>Registro de horas extras ||{{ object.total_overtime }}</h3>
 
-{% endblock %}
+
+<br>
+{% endblock %} 
