@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
+{% load static %}
+
 {% block main %}
 <div class="row">
   <div class="col-5"></div>
@@ -18,6 +20,16 @@
   <br><br>
   <button type="submit" class=" btn btn-primary"> Salvar</button>
   <a href="{% url 'list_overtime' %}" class="btn btn-outline-success">Voltar</a>
+  <button type="button" class="btn btn-outline-primary" onclick="usedHours({{object.id}})">Utilizadas</button>
 </form>
 <br>
+<br>
+  <input id="mensagem"  type="checkbox" disabled {% if object.used == True %}
+  checked {% endif %} >Utilizadas</input>
+<br>
+{% endblock %}
+
+{% block static %}
+  <script src="{% static 'assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/js/functions.js' %}"></script>
 {% endblock %}

@@ -18,11 +18,11 @@ class Funcionario(models.Model):
 
     @property
     def total_overtime(self):
-        return self.registrohoraextra_set.all().aggregate(
+        return self.registrohoraextra_set.filter(used=False).aggregate(
             Sum('hours'))['hours__sum']
 
     def get_absolute_url(self):
         return reverse("list_worker")
 
     def __str__(self):
-        return self.name
+        return self.name 

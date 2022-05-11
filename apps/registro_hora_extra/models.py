@@ -8,7 +8,7 @@ class RegistroHoraExtra(models.Model):
     worker = models.ForeignKey(
         Funcionario, on_delete=models.PROTECT, verbose_name='Funcionario')
     hours = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Horas')
-
+    used = models.BooleanField(default=False, verbose_name='Usadas')
     def get_absolute_url(self):
         return reverse("list_overtime")
     

@@ -15,7 +15,8 @@
   <br>
   <div class="container" style="background-color:hsla(0, 0%, 00%, 0.7);; border-radius: 3px; ">
     <br>
-    {%block main%}{%endblock%}
+    {% block main %}{%endblock%}
+    {% block static %}{% endblock %}
   </div>
   <footer>
     <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>

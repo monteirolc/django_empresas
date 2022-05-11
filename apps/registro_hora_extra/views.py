@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from .models import RegistroHoraExtra
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.views import View
 from django.urls import reverse_lazy
+from django.http import HttpResponse
+import json
 from .form import OvertimeForm
 # Create your views here.
 
@@ -37,4 +40,10 @@ class DeleteOvertime(DeleteView):
     template_name = "overtime/overtime_delete.html"
     success_url = reverse_lazy('list_overtime')
 
-
+class UsedOvertime(View):
+    def post(self, *args, **kwargs):
+        response = json.dumps({'mensagem': 'Requisição executada', 'hours':float(worker.total_overtime)})
+        set_overtime = RegistroHoraExtra.objects.get(id=kwargs['pk'])
+        set_overtime.used = True
+        set_overtime.save()
+        return HttpResponse(response, content_type='application/json')
